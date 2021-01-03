@@ -163,7 +163,7 @@ class _UploadDocPageState extends State<UploadDocPage> {
           child: InkResponse(
             radius: size.width * 0.8,
             splashColor: Colors.grey[300],
-             onTap: () {
+            onTap: () {
               showModalBottomSheet(
                 context: context,
                 builder: ((builder) => dataSheet(size)),
@@ -294,9 +294,12 @@ class _UploadDocPageState extends State<UploadDocPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 GestureDetector(
-                  onTap: () => aadharImage == null
-                      ? getAadharImage(ImageSource.camera)
-                      : getPanImage(ImageSource.camera),
+                  onTap: () {
+                    aadharImage == null
+                        ? getAadharImage(ImageSource.camera)
+                        : getPanImage(ImageSource.camera);
+                    Navigator.pop(context);
+                  },
                   child: Container(
                     width: size.width * 0.35,
                     child: Column(
@@ -313,9 +316,12 @@ class _UploadDocPageState extends State<UploadDocPage> {
                 Container(
                   width: size.width * 0.35,
                   child: GestureDetector(
-                    onTap: () => aadharImage == null
-                        ? getAadharImage(ImageSource.gallery)
-                        : getPanImage(ImageSource.gallery),
+                    onTap: () {
+                      aadharImage == null
+                          ? getAadharImage(ImageSource.gallery)
+                          : getPanImage(ImageSource.gallery);
+                      Navigator.pop(context);
+                    },
                     child: Column(
                       children: <Widget>[
                         Icon(
